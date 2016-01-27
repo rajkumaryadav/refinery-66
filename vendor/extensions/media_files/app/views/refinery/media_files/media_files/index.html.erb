@@ -1,0 +1,70 @@
+<div class="row secondaryContainer noSecondMenu">
+	<div class="small-12 secondaryMarginTop">
+
+	   <div class="secondaryTextHeader">media</div>
+	   <div class="secondaryTextCopy mediaSection mediaTV">
+		   <div class="mediaSectionTitle">tv</div>
+		   <% @media_files.each do |media_file| %>
+		      <%if media_file.media_type %>
+			   <div class="mediaItem row">
+				  <div class="large-1 columns mediaImg">
+					<%=image_tag media_file.images.first.url, style: "width:100%" %>
+				  </div>
+				  <div class="large-11 columns mediaOther">
+					  <div class="mediaText">
+						 <%=raw media_file.description  %>
+						  <p class="showVideo">See Video >></p>
+					  </div>
+					  <div style="height:500px;display:none" class="myvideo"  >
+					  
+					    <object width="887" height="443" >
+						  <param name="movie" value="<%=media_file.video_url %>" />
+						  <param name="wmode" value="transparent" />
+						  <embed src="<%=media_file.video_url %>"
+								 type="application/x-shockwave-flash"
+								 wmode="transparent" width="887" height="443" />
+						</object>
+					  </div>
+				  </div>
+			  </div>
+			  <%end%>
+			<%end%>
+	  </div>
+
+	  <div class="secondaryTextCopy mediaSection">
+		  <div class="mediaSectionTitle">radio</div>
+		   <% @media_files.each do |media_file| %>
+		      <%if !media_file.media_type %>
+				  <div class="mediaItem row">
+					   <div class="large-1 columns mediaImg">
+						<%=image_tag media_file.images.first.url, style: "width:100%" %>
+					   </div>
+					   <div class="large-11 columns mediaOther">
+						   <div class="mediaText"><%==raw media_file.description  %></div>
+						    
+						   <div class="mediaAudio">
+							  <audio controls="controls">
+								 <source src="<%=media_file.audio1.url if media_file.audio1%>" type="audio/ogg">
+								 <source src="<%=media_file.audio2.url if media_file.audio2%>" type="audio/mpeg">
+								 Your browser does not support the audio element.
+							  </audio>
+						  </div>
+						</div>
+				  </div>
+				 
+		      <%end%>
+			<%end%>
+
+	  </div>
+	</div>
+</div>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+</script>
+<script>
+$(document).ready(function(){
+  $(".showVideo").click(function(){
+    $(this).parent().parent().find(".myvideo").toggle('slow');
+  });
+});
+</script>

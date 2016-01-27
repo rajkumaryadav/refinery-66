@@ -1,0 +1,33 @@
+es:
+  refinery:
+    plugins:
+      media_files:
+        title: Media Files
+#        article: masculino/femenino
+    media_files:
+      admin:
+        media_files:
+          actions:
+            create_new: Crear nuevo media file
+            reorder: Reordenar media files
+            reorder_done: Reordenación de media files completada
+          records:
+            title: Media Files
+            sorry_no_results: Lo siento, no hay resultados
+            no_items_yet: No hay media files todavía. Pulsa en "Crear nuevo Media File" para crear tu primer media file.
+          media_file:
+            view_live_html: Ver este media file como abierto al público <br/><em>(abre en ventana nueva)</em>
+            edit: Editar este media file
+            delete: Borrar este media file para siempre
+      media_files:
+        show:
+          other: Otros media files
+  activerecord:
+    attributes:
+      'refinery/media_files/media_file':
+        title: Title
+        description: Description
+        video_url: Video Url
+        media_type: Media Type
+        audio1: Audio1
+        audio2: Audio2

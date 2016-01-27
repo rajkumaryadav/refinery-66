@@ -1,0 +1,29 @@
+<%
+   if !!local_assigns[:apply_css] and (classes = menu_branch_css(local_assigns)).any?
+     # active is only 1 for submenu  - currently opened branch title
+     classes << "active" if params[:path] == refinery.url_for(menu_branch.url)[1..-1]
+     css = "class='#{classes.join(' ')}'".html_safe
+       hide_children = Refinery::Core.menu_hide_children if hide_children.nil? 
+   end
+
+   # if true, render selected branch to depth untill end
+  is_selected_branch = ( selected_page_or_descendant_page_selected?(local_assigns[:menu_branch]) ? true : false)
+-%>
+ 
+
+ 
+<li<%= ['', css].compact.join(' ').gsub(/\ *$/, '').html_safe %>>
+  <%= link_to(menu_branch.title, refinery.url_for(menu_branch.url)) -%>
+
+  <% if (children = menu_branch.children unless hide_children).present? &&  is_selected_branch -%>
+       <%= render :partial => '/refinery/menu_branch', :collection => children,
+					 :locals => {
+					   :apply_css => local_assigns[:apply_css],
+					   :hide_children => !hide_children,
+					   :menu_levels => local_assigns[:menu_levels]
+					 } -%>
+
+  <% end -%>
+
+</li>
+

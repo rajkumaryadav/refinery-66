@@ -1,0 +1,11 @@
+<% content_for :body do %>
+  <ul id="footer_slides">
+    <% @footer_slides.each do |footer_slide| %>
+      <li>
+        <%= link_to footer_slide.title, refinery.footer_slides_footer_slide_path(footer_slide) %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= render '/refinery/content_page' %>

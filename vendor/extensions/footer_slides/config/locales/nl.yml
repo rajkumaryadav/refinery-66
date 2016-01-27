@@ -1,0 +1,29 @@
+nl:
+  refinery:
+    plugins:
+      footer_slides:
+        title: Footer Slides
+    footer_slides:
+      admin:
+        footer_slides:
+          actions:
+            create_new: Maak een nieuwe Footer Slide
+            reorder: Wijzig de volgorde van de Footer Slides
+            reorder_done: Klaar met het wijzingen van de volgorde van de Footer Slides
+          records:
+            title: Footer Slides
+            sorry_no_results: Helaas! Er zijn geen resultaten gevonden.
+            no_items_yet: Er zijn nog geen Footer Slides. Druk op 'Maak een nieuwe Footer Slide' om de eerste aan te maken.
+          footer_slide:
+            view_live_html: Bekijk deze footer slide op de website <br/><em>(opent een nieuw venster)</em>
+            edit: Bewerk deze footer slide
+            delete: Verwijder deze footer slide voor eeuwig
+      footer_slides:
+        show:
+          other: Andere Footer Slides
+  activerecord:
+    attributes:
+      'refinery/footer_slides/footer_slide':
+        title: Title
+        description: Description
+        image: Image

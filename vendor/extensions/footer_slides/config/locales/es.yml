@@ -1,0 +1,30 @@
+es:
+  refinery:
+    plugins:
+      footer_slides:
+        title: Footer Slides
+#        article: masculino/femenino
+    footer_slides:
+      admin:
+        footer_slides:
+          actions:
+            create_new: Crear nuevo footer slide
+            reorder: Reordenar footer slides
+            reorder_done: Reordenación de footer slides completada
+          records:
+            title: Footer Slides
+            sorry_no_results: Lo siento, no hay resultados
+            no_items_yet: No hay footer slides todavía. Pulsa en "Crear nuevo Footer Slide" para crear tu primer footer slide.
+          footer_slide:
+            view_live_html: Ver este footer slide como abierto al público <br/><em>(abre en ventana nueva)</em>
+            edit: Editar este footer slide
+            delete: Borrar este footer slide para siempre
+      footer_slides:
+        show:
+          other: Otros footer slides
+  activerecord:
+    attributes:
+      'refinery/footer_slides/footer_slide':
+        title: Title
+        description: Description
+        image: Image

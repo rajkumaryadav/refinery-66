@@ -1,0 +1,37 @@
+css:
+ .footerSideMenu.large-8.columns{float:right}
+ @media only screen and (min-width:501px) and (max-width:940px){div.slideItem img{height:100%}}
+ @media only screen and (max-width:500px) {div.slideItem img{height:100%} {.blueBox .bbText{font-size:14px;}}
+div.mainContent
+	div.mainSlideLeft
+		=image_tag ('icons/arrow-left.png'), alt: "Left"
+	div.mainSlideRight
+		=image_tag ('icons/arrow-right.png'), alt: "Right"
+	div.mainSlideWrap.cycle-slideshow data-cycle-slides="> div" data-cycle-fx="scrollHorz" data-cycle-prev=".mainSlideLeft" data-cycle-next=".mainSlideRight" data-cycle-speed="1000" data-cycle-easing="easeInOutExpo"
+		-@page.images.each_with_index do |image, index|
+			div.slideItem style="background-image:url('#{image.url}')"
+				div.slideText
+					=raw @page.caption_for_image_index(index)
+
+div.barSpace
+	div.row
+	    =render "refinery/footer_contact"
+		div.footerSideMenu.large-8.columns
+			div.barWrap
+			  -Refinery::FooterSlides::FooterSlide.limit(4).each do |fs|
+				div.row.blueBar
+					div.large-12.columns 
+						div.barText
+						  =fs.title
+					=image_tag fs.images.first.url, style: "width:100%" 
+					div.barHidden 
+						div.barHiddenText
+							=raw fs.description 
+	
+			div.row.blueBox
+				div.large-5.columns
+					a href="https://www.on-site.com/apply/property/160745"
+						div.bbText Apply Here
+				div.large-5.columns 
+					a href="http://www.metro92.com/" target="_blank"
+						div.bbText the lofts at metro 92

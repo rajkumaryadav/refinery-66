@@ -1,0 +1,40 @@
+
+<%
+  # Collect the root items.
+  # ::Refinery::Menu is smart enough to remember all of the items in the original collection.
+  if (roots = local_assigns[:roots] || (collection ||= refinery_menu_pages).roots).present?
+    dom_id ||= 'menu'
+    css = [(css || 'menu clearfix')].flatten.join(' ')
+    hide_children = Refinery::Core.menu_hide_children if hide_children.nil? 
+	#is_selected_branch = ( selected_page_or_descendant_page_selected?(local_assigns[:menu_branch]) ? true : false)
+-%>
+
+	<%roots.each_with_index do |page, index| %>
+	    <% if page.children.present? && (children = page.children unless hide_children).present? &&  (!local_assigns[:menu_levels] || page.ancestors.length < local_assigns[:menu_levels])%>
+		   <nav <%if page.children.first.parent_id ==@page.id || (page.children.first.parent.title == @page.parent.title if @page.parent ) %>style="display:block" <%end%> class="large-10 columns secondaryMenuPlacement" >
+			<% page.children.each do |child| %>
+				 <ul class="firstLevelMenu">
+					  <li>
+					   
+					    <%= link_to child.title, refinery.url_for(child.url)%>
+					    <%#=debug(child.has_children?)%>
+					  </li>
+				  </ul>
+			<%end%>   
+			<% page.children.each do |child| %>
+			   <%if child.children.present? %>
+					<ul class="secondLevelMenu" style="display: block">
+					  <% child.children.each_with_index do |grandchild,i|%>
+						<li data-name="submenu_<%=grandchild.title.gsub(' ', '') + i.to_s%>">
+						     <%=  grandchild.title%>
+						</li>
+					  <%end%>
+					 </ul>
+			   <%end%>
+		    <%end%>
+		  </nav> 
+		 <%end%>
+	<%end%>
+<%end%>
+
+	 

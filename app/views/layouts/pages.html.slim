@@ -1,0 +1,15 @@
+DOCTYPE html
+html
+	head
+		meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+		title 66Main
+		= stylesheet_link_tag "application", :media => "all"
+		<script type="text/javascript" src="//use.typekit.net/urv1ahn.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+	body
+		div.secondarySite
+			= render 'templates/header2'
+			= yield
+			= render 'templates/footer2'
+			= javascript_include_tag "application"

@@ -1,0 +1,25 @@
+<ul>
+  <% if ::Refinery::MediaFiles::Admin::MediaFilesController.searchable? %>
+    <li>
+      <%= render '/refinery/admin/search', :url => refinery.media_files_admin_media_files_path %>
+    </li>
+  <% end %>
+  <li>
+    <%= link_to t('.create_new'), refinery.new_media_files_admin_media_file_path,
+                 :class => "add_icon" %>
+  </li>
+<% if !searching? && ::Refinery::MediaFiles::Admin::MediaFilesController.sortable? && ::Refinery::MediaFiles::MediaFile.any? %>
+  <li>
+    <%= link_to t('.reorder', :what => "Media Files"),
+                 refinery.media_files_admin_media_files_path,
+                 :id => "reorder_action",
+                 :class => "reorder_icon" %>
+
+    <%= link_to t('.reorder_done', :what => "Media Files"),
+                 refinery.media_files_admin_media_files_path,
+                 :id => "reorder_action_done",
+                 :style => "display: none;",
+                 :class => "reorder_icon" %>
+  </li>
+<% end %>
+</ul>

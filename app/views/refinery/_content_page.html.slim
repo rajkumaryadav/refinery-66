@@ -1,0 +1,11 @@
+div class="row secondaryContainer #{!@page.parent.nil? ? @page.parent.title.downcase.gsub(' ', '') : @page.title.downcase.gsub(' ', '')}" data-extra="menu"
+  -if @page.path == "Neighborhood"
+    div.secondaryTextHeader EXPLORE
+  -if !@page.content_for(:side_body).present? and !@page.content_for(:body).present?
+	=render 'refinery/photo_gallery'
+  -else
+	=render 'refinery/page_slider'
+
+
+   
+     

@@ -1,0 +1,65 @@
+<% content_for :body_content_title do %>
+  <%= @media_file.title %>
+<% end %>
+
+<% content_for :body do %>
+  <section>
+    <h1>Title</h1>
+    <p>
+      <%=raw @media_file.title %>
+    </p>
+  </section>
+  <section>
+    <h1>Description</h1>
+    <p>
+      <%=raw @media_file.description %>
+    </p>
+  </section>
+  <section>
+    <h1>Video Url</h1>
+    <p>
+      <%=raw @media_file.video_url %>
+    </p>
+  </section>
+  <section>
+    <h1>Media Type</h1>
+    <p>
+      <%=raw @media_file.media_type %>
+    </p>
+  </section>
+  <section>
+    <h1>Audio1</h1>
+    <p>
+      <% if @media_file.audio1.present? %>
+        <%= link_to 'audio1', @media_file.audio1.url %>
+      <% else %>
+        audio1
+      <% end %>
+    </p>
+  </section>
+  <section>
+    <h1>Audio2</h1>
+    <p>
+      <% if @media_file.audio2.present? %>
+        <%= link_to 'audio2', @media_file.audio2.url %>
+      <% else %>
+        audio2
+      <% end %>
+    </p>
+  </section>
+<% end %>
+
+<% content_for :side_body do %>
+  <aside>
+    <h2><%= t('.other') %></h2>
+    <ul id="media_files">
+      <% @media_files.each do |media_file| %>
+        <li>
+          <%= link_to media_file.title, refinery.media_files_media_file_path(media_file) %>
+        </li>
+      <% end %>
+    </ul>
+  </aside>
+<% end %>
+
+<%= render '/refinery/content_page' %>

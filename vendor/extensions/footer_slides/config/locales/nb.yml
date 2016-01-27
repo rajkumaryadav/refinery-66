@@ -1,0 +1,29 @@
+nb:
+  refinery:
+    plugins:
+      footer_slides:
+        title: Footer Slides
+    footer_slides:
+      admin:
+        footer_slides:
+          actions:
+            create_new: Lag en ny Footer Slide
+            reorder: Endre rekkefølgen på Footer Slides
+            reorder_done: Ferdig å endre rekkefølgen Footer Slides
+          records:
+            title: Footer Slides
+            sorry_no_results: Beklager! Vi fant ikke noen resultater.
+            no_items_yet: Det er ingen Footer Slides enda. Klikk på "Lag en ny Footer Slide" for å legge til din første footer slide.
+          footer_slide:
+            view_live_html: Vis hvordan denne footer slide ser ut offentlig <br/><em>(åpner i et nytt vindu)</em>
+            edit: Rediger denne footer slide
+            delete: Fjern denne footer slide permanent
+      footer_slides:
+        show:
+          other: Andre Footer Slides
+  activerecord:
+    attributes:
+      'refinery/footer_slides/footer_slide':
+        title: Title
+        description: Description
+        image: Image

@@ -1,0 +1,32 @@
+sk:
+  refinery:
+    plugins:
+      media_files:
+        title: Media Files
+    media_files:
+      admin:
+        media_files:
+          actions:
+            create_new: Pridať Media File
+            reorder: Preusporiadať Media Files
+            reorder_done: Koniec radenia Media Files
+          records:
+            title: Media Files
+            sorry_no_results: Ľutujeme, ale neboli nájdené žiadne výsledky.
+            no_items_yet: Nie sú vytvorené žiadne Media Files. Kliknite na "Pridať Media File" pre pridanie prvého media file.
+          media_file:
+            view_live_html: Zobraziť náhľad media file<br/><em>(otvorí sa v novom okne)</em>
+            edit: Upraviť media file
+            delete: Zmazať media file
+      media_files:
+        show:
+          other: Daľšie Media Files
+  activerecord:
+    attributes:
+      'refinery/media_files/media_file':
+        title: Title
+        description: Description
+        video_url: Video Url
+        media_type: Media Type
+        audio1: Audio1
+        audio2: Audio2

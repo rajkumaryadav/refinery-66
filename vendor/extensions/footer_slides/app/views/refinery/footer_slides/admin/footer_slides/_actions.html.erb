@@ -1,0 +1,25 @@
+<ul>
+  <% if ::Refinery::FooterSlides::Admin::FooterSlidesController.searchable? %>
+    <li>
+      <%= render '/refinery/admin/search', :url => refinery.footer_slides_admin_footer_slides_path %>
+    </li>
+  <% end %>
+  <li>
+    <%= link_to t('.create_new'), refinery.new_footer_slides_admin_footer_slide_path,
+                 :class => "add_icon" %>
+  </li>
+<% if !searching? && ::Refinery::FooterSlides::Admin::FooterSlidesController.sortable? && ::Refinery::FooterSlides::FooterSlide.any? %>
+  <li>
+    <%= link_to t('.reorder', :what => "Footer Slides"),
+                 refinery.footer_slides_admin_footer_slides_path,
+                 :id => "reorder_action",
+                 :class => "reorder_icon" %>
+
+    <%= link_to t('.reorder_done', :what => "Footer Slides"),
+                 refinery.footer_slides_admin_footer_slides_path,
+                 :id => "reorder_action_done",
+                 :style => "display: none;",
+                 :class => "reorder_icon" %>
+  </li>
+<% end %>
+</ul>

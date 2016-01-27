@@ -1,0 +1,14 @@
+div.small-12.gallerySlide.secondaryMarginTop
+	div.gallerySlideLeft
+		img src="#{image_path('icons/arrow-left.png')}" alt="Left"
+	div.gallerySlideRight
+		img src="#{image_path('icons/arrow-right.png')}" alt="Right"
+	div.gallerySlideWrap.cycle-slideshow data-cycle-fx="scrollHorz" data-cycle-prev=".gallerySlideLeft" data-cycle-next=".gallerySlideRight" data-cycle-speed="1000" data-cycle-easing="easeInOutExpo" data-cycle-loader="wait" data-cycle-swipe="true" data-cycle-auto-height="container"
+		-@page.images.each_with_index do |image, index|
+		  =image_tag image.url, alt: "Gallery"
+
+div.small-12.galleryPager
+	ul.galleryPagerWrap
+	  -@page.images.each_with_index do |image, index|
+		 li =image_tag image.url, alt: "Thumbnail"
+	  li.clearfix

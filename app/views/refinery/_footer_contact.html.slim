@@ -1,0 +1,41 @@
+css:
+  .inquiryForm input[type="email"]{
+	color: #898989;
+	width: 100%;
+	border: none;
+	font-size: 0.75em;
+	padding: 0.625em;
+	border-radius: 0;
+	}
+div.footerInquiry.large-3.columns
+	=form_for [refinery, :inquiries, inquiry_object], html: {class: "inquiryForm", id: "footer_inquiry_form"}, remote: true do |f|
+		div.inquiryTitle Submit an Inquiry
+		div.row
+			div.large-10.large-centered.columns
+				=f.text_field :name, required: true, placeholder: "Name"
+		div.row
+			div.large-10.large-centered.columns
+				=f.text_field :address, required: true, placeholder: "Address"
+		div.row
+			div.large-10.large-centered.columns
+				=f.text_field :city, required: true, placeholder: "City"
+		div.row
+			div.large-10.large-centered.columns
+				div.large-5.columns
+					=f.text_field :state, required: true, placeholder: "State"
+				div.large-5.columns
+					=f.text_field :zip, required: true, placeholder: "Zip"
+		div.row
+			div.large-10.large-centered.columns
+				=f.email_field :email, required: true, placeholder: "Email"
+		div.row
+			div.large-10.large-centered.columns
+				=f.text_field :phone, required: true, placeholder: "Phone"
+		div.row
+			div.large-10.large-centered.columns
+				=f.text_field :call_time, placeholder: "Best time to call"
+				=f.hidden_field :message, value: "Not specified"
+		div.row
+			div#footer_inquiry_button.large-7.large-centered.columns
+				=f.submit value="Continue", class: "submitBtn", disable_with: "Plz wait..."
+

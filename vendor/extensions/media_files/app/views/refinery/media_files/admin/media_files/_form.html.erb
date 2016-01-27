@@ -1,0 +1,94 @@
+<%= form_for [refinery, :media_files_admin, @media_file] do |f| -%>
+  <%= render '/refinery/admin/error_messages',
+              :object => @media_file,
+              :include_object_name => true %>
+
+  
+  <div class='field'>
+    <%= f.label :title -%>
+    <%= f.text_field :title, :class => 'larger widest'  -%>
+
+  </div>
+  
+  <div class='field'>
+    <div id='page-tabs' class='clearfix ui-tabs ui-widget ui-widget-content ui-corner-all'>
+      <ul id='page_parts'>
+        <% [:description].each_with_index do |part, part_index| %>
+          <li class='ui-state-default<%= ' ui-state-active' if part_index == 0 %>'>
+            <%= link_to t("#{part}", :scope => "activerecord.attributes.refinery/media_files/media_file", :default => part.to_s.titleize), "##{part}" %>
+          </li>
+        <% end %>
+      </ul>
+      <div id='page_part_editors'>
+        <% [:description].each do |part| %>
+          <div class='page_part' id='<%= part %>'>
+            <%= f.text_area part, :rows => 20, :class => 'wymeditor widest' -%>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+  
+    <div class='field'>
+    <%= f.label :media_type -%>
+	<%#= @media_file.media_type%>
+    <%#= f.check_box :media_type, :checked => @media_file[:media_type]  -%>
+    <%= f.radio_button :media_type, "0" , :checked => true, :onclick=>'$("#audio_content").show();$("#video_content").hide();' %>Radio
+	<%= f.radio_button :media_type, "1", :onclick=>'$("#video_content").show();$("#audio_content").hide();' %>TV
+  </div>
+  
+  <div class='field' id="video_content" style="display:none">
+    <%= f.label :video_url -%>
+    <%= f.text_field :video_url  -%>
+
+  </div>
+  
+ <div id="audio_content" style="display:block">
+	  <div class='field'>
+		<%= f.label "Audio Format1 " -%>
+		<%= render '/refinery/admin/resource_picker',
+				   :f => f,
+				   :field => :audio1_id,
+				   :resource => @media_file.audio1 %>
+	  </div>
+	  
+	  <div class='field'>
+		<%= f.label "Audio Format2" -%>
+		<%= render '/refinery/admin/resource_picker',
+				   :f => f,
+				   :field => :audio2_id,
+				   :resource => @media_file.audio2 %>
+	  </div>
+  </div>
+
+      <div class='field'>
+    <%= f.label "Logo" -%>
+    <%= render :partial => "/refinery/admin/pages/tabs/images", :locals => {
+      :f => f
+    } %>
+  </div> 
+  <%= render '/refinery/admin/form_actions', :f => f,
+             :continue_editing => false,
+             :delete_title => t('delete', :scope => 'refinery.media_files.admin.media_files.media_file'),
+             :delete_confirmation => t('message', :scope => 'refinery.admin.delete', :title => @media_file.title) %>
+<% end -%>
+<% content_for :javascripts do %>
+  <script>
+    $(document).ready(function(){
+	  if ('<%= @media_file.media_type%>' == "true")
+    	{
+    		$("#video_content").show();
+    		$("#audio_content").hide();
+    		$("#media_file_media_type_1").attr('checked', true);
+    	}
+    	if ('<%= @media_file.media_type%>' == "false")
+    	{
+    		$("#video_content").hide();
+    		$("#audio_content").show();
+    		$("#media_file_media_type_0").attr('checked', true);
+    	}
+      page_options.init(false, '', '');
+    });
+  </script>
+<% end %>

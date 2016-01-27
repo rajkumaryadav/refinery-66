@@ -1,0 +1,52 @@
+div.secondLevelSlide.cycle-slideshow data-cycle-slides="> .secondaryContentSlide" data-cycle-fx="scrollHorz" data-cycle-speed="1000" data-cycle-easing="easeInOutExpo" data-cycle-timeout="0" data-cycle-auto-height="calc" data-cycle-loader="wait"
+  div.secondaryContentSlide
+    -if @page.content_for(:side_body).present?
+      =raw @page.content_for(:side_body)
+    -if @page.images.present?
+      div class="#{(@page.path == "Units") ? "large-7" : "large-5"} columns secondaryLeft"
+        div.secondaryLeftWrap
+          div.secondarySlideLeft.1
+            =image_tag ('icons/arrow-left.png'), alt: "Left"
+          div.secondarySlideRight.1 
+            =image_tag ('icons/arrow-right.png'), alt: "Right"
+          div.secondaryImgWrap.cycle-slideshow data-cycle-slides="> div" data-cycle-fx="scrollHorz" data-cycle-prev=".secondarySlideLeft.1" data-cycle-next=".secondarySlideRight.1" data-cycle-speed="1000" data-cycle-easing="easeInOutExpo" data-cycle-swipe="true" data-cycle-auto-height="container" data-cycle-loader="wait"
+            -@page.images.each_with_index do |image, index|
+              div.sIWItem
+                =image_tag image.url
+          div.secondaryCaption style="opacity:1" The ultimate in comfortable living.
+		.share style="opacity: 1;margin-top: 1.25em;"
+          a href="#" style="display: inline-block;margin-right: 5px" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href), 'facebook-share-dialog', 'width=626,height=436'); return false"
+            img alt="Facebook" src="/assets/icons/fb.png"
+          a href="#" style="display: inline-block;" onclick="window.open('https://twitter.com/share?url='+location.href, 'twitter-share-dialog', 'width=626,height=436'); return false;"
+            img alt="Twitter" src="/assets/icons/tw.png"
+
+    -if @page.content_for(:body).present?
+	  =raw @page.content_for(:body)
+
+  - if @page
+    - refinery_menu_pages.each do |menu_item|
+      -menu_item.children.each do |child|
+        -if child.children.present?
+		  -child.children.each_with_index do |grandchild,i|
+		    -@nw_page=Refinery::Page.find_by_title(grandchild.title) 
+		    div class="secondaryContentSlide submenu_#{grandchild.title.gsub(' ', '')+i.to_s}"
+			  div.large-5.columns.secondaryLeft
+			    div.secondaryLeftWrap
+			      div class="secondarySlideLeft 5" style="bottom: 24.5px;"
+				    =image_tag ('icons/arrow-left.png'), alt: "Left"
+				  div class="secondarySlideRight 5" style="bottom: 24.5px;"
+				    =image_tag ('icons/arrow-right.png'), alt: "Right"
+				  div.secondaryImgWrap.cycle-slideshow data-cycle-slides="> div" data-cycle-fx="scrollHorz" data-cycle-prev=".secondarySlideLeft.5" data-cycle-next=".secondarySlideRight.5" data-cycle-speed="1000" data-cycle-easing="easeInOutExpo" data-cycle-swipe="true" data-cycle-auto-height="container" data-cycle-loader="wait"
+			        -@nw_page.images.each_with_index do |image, index|
+		              div.sIWItem
+		                =image_tag image.url, style: "width:100%"
+			      div.secondaryCaption style="opacity:1" The ultimate in comfortable living.
+			    .share style="opacity: 1;margin-top: 1.25em;"
+				  a href="#" style="display: inline-block;margin-right: 5px" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href), 'facebook-share-dialog', 'width=626,height=436'); return false"
+				    img alt="Facebook" src="/assets/icons/fb.png"
+				  a href="#" style="display: inline-block;" onclick="window.open('https://twitter.com/share?url='+location.href, 'twitter-share-dialog', 'width=626,height=436'); return false;"
+				    img alt="Twitter" src="/assets/icons/tw.png"  
+		
+			  =raw @nw_page.content_for(:body)	
+
+	

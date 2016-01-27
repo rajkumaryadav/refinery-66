@@ -1,0 +1,34 @@
+zh-CN:
+  refinery:
+    plugins:
+      media_files:
+        title: Media Files
+    media_files:
+      admin:
+        media_files:
+          actions:
+            create_new: 建立新的 Media File
+            reorder: 对 Media Files 重新排序
+            reorder_done: 对 Media Files 的重新排序结束
+          records:
+            title: Media Files
+            sorry_no_results: 对不起，未找到结果。 #Sorry! There are no results found.
+
+            # There are no Media Files yet. Click "Add New Media File" to add your first media file.
+            no_items_yet: 目前没有 Media Files . 点击 "Add New Media File" 创建一个media file.
+          media_file:
+            view_live_html: 查看 media file 的最新内容.<br/><em>(新窗口中打开)</em>
+            edit: 编辑 media file
+            delete: 永久删除 media file
+      media_files:
+        show:
+          other: 其他 Media Files
+  activerecord:
+    attributes:
+      'refinery/media_files/media_file':
+        title: Title
+        description: Description
+        video_url: Video Url
+        media_type: Media Type
+        audio1: Audio1
+        audio2: Audio2

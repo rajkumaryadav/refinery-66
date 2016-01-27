@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<%= render '/refinery/html_tag' %>
+  <% site_bar = render('/refinery/site_bar', :head => true) -%>
+  <%= render '/refinery/head' %>
+  <body>
+    <div class="site">
+    <%= site_bar -%>
+      <%= render '/shared/header' -%>
+      <%= yield %>
+      <%= render '/shared/footer' -%>
+    </div>
+    <%= render '/refinery/javascripts' %>
+  </body>
+</html>
+

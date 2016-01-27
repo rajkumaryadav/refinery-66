@@ -1,0 +1,29 @@
+en:
+  refinery:
+    plugins:
+      footer_slides:
+        title: Footer Slides
+    footer_slides:
+      admin:
+        footer_slides:
+          actions:
+            create_new: Add New Footer Slide
+            reorder: Reorder Footer Slides
+            reorder_done: Done Reordering Footer Slides
+          records:
+            title: Footer Slides
+            sorry_no_results: Sorry! There are no results found.
+            no_items_yet: There are no Footer Slides yet. Click "Add New Footer Slide" to add your first footer slide.
+          footer_slide:
+            view_live_html: View this footer slide live <br/><em>(opens in a new window)</em>
+            edit: Edit this footer slide
+            delete: Remove this footer slide forever
+      footer_slides:
+        show:
+          other: Other Footer Slides
+  activerecord:
+    attributes:
+      'refinery/footer_slides/footer_slide':
+        title: Title
+        description: Description
+        image: Image

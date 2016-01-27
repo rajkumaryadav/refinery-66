@@ -1,0 +1,32 @@
+fr:
+  refinery:
+    plugins:
+      media_files:
+        title: Media Files
+    media_files:
+      admin:
+        media_files:
+          actions:
+            create_new: Créer un(e) nouve(au/l/lle) Media File
+            reorder: Réordonner les Media Files
+            reorder_done: Fin de réordonnancement des Media Files
+          records:
+            title: Media Files
+            sorry_no_results: "Désolé ! Aucun résultat."
+            no_items_yet: 'Il n''y a actuellement aucun(e) Media File. Cliquer sur "Créer un(e) nouve(au/l/lle) Media File" pour créer votre premi(er/ère) media file.'
+          media_file:
+            view_live_html: Voir ce(t/tte) media file <br/><em>(Ouvre une nouvelle fenêtre)</em>
+            edit: Modifier ce(t/tte) media file
+            delete: Supprimer définitivement ce(t/tte) media file
+      media_files:
+        show:
+          other: Autres Media Files
+  activerecord:
+    attributes:
+      'refinery/media_files/media_file':
+        title: Title
+        description: Description
+        video_url: Video Url
+        media_type: Media Type
+        audio1: Audio1
+        audio2: Audio2

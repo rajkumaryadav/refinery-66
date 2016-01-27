@@ -1,0 +1,29 @@
+sk:
+  refinery:
+    plugins:
+      footer_slides:
+        title: Footer Slides
+    footer_slides:
+      admin:
+        footer_slides:
+          actions:
+            create_new: Pridať Footer Slide
+            reorder: Preusporiadať Footer Slides
+            reorder_done: Koniec radenia Footer Slides
+          records:
+            title: Footer Slides
+            sorry_no_results: Ľutujeme, ale neboli nájdené žiadne výsledky.
+            no_items_yet: Nie sú vytvorené žiadne Footer Slides. Kliknite na "Pridať Footer Slide" pre pridanie prvého footer slide.
+          footer_slide:
+            view_live_html: Zobraziť náhľad footer slide<br/><em>(otvorí sa v novom okne)</em>
+            edit: Upraviť footer slide
+            delete: Zmazať footer slide
+      footer_slides:
+        show:
+          other: Daľšie Footer Slides
+  activerecord:
+    attributes:
+      'refinery/footer_slides/footer_slide':
+        title: Title
+        description: Description
+        image: Image

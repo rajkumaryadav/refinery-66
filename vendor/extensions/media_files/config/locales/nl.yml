@@ -1,0 +1,32 @@
+nl:
+  refinery:
+    plugins:
+      media_files:
+        title: Media Files
+    media_files:
+      admin:
+        media_files:
+          actions:
+            create_new: Maak een nieuwe Media File
+            reorder: Wijzig de volgorde van de Media Files
+            reorder_done: Klaar met het wijzingen van de volgorde van de Media Files
+          records:
+            title: Media Files
+            sorry_no_results: Helaas! Er zijn geen resultaten gevonden.
+            no_items_yet: Er zijn nog geen Media Files. Druk op 'Maak een nieuwe Media File' om de eerste aan te maken.
+          media_file:
+            view_live_html: Bekijk deze media file op de website <br/><em>(opent een nieuw venster)</em>
+            edit: Bewerk deze media file
+            delete: Verwijder deze media file voor eeuwig
+      media_files:
+        show:
+          other: Andere Media Files
+  activerecord:
+    attributes:
+      'refinery/media_files/media_file':
+        title: Title
+        description: Description
+        video_url: Video Url
+        media_type: Media Type
+        audio1: Audio1
+        audio2: Audio2

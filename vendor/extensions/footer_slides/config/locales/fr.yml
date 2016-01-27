@@ -1,0 +1,29 @@
+fr:
+  refinery:
+    plugins:
+      footer_slides:
+        title: Footer Slides
+    footer_slides:
+      admin:
+        footer_slides:
+          actions:
+            create_new: Créer un(e) nouve(au/l/lle) Footer Slide
+            reorder: Réordonner les Footer Slides
+            reorder_done: Fin de réordonnancement des Footer Slides
+          records:
+            title: Footer Slides
+            sorry_no_results: "Désolé ! Aucun résultat."
+            no_items_yet: 'Il n''y a actuellement aucun(e) Footer Slide. Cliquer sur "Créer un(e) nouve(au/l/lle) Footer Slide" pour créer votre premi(er/ère) footer slide.'
+          footer_slide:
+            view_live_html: Voir ce(t/tte) footer slide <br/><em>(Ouvre une nouvelle fenêtre)</em>
+            edit: Modifier ce(t/tte) footer slide
+            delete: Supprimer définitivement ce(t/tte) footer slide
+      footer_slides:
+        show:
+          other: Autres Footer Slides
+  activerecord:
+    attributes:
+      'refinery/footer_slides/footer_slide':
+        title: Title
+        description: Description
+        image: Image

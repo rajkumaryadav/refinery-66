@@ -1,0 +1,43 @@
+Searching 475 files for "facebook"
+
+/home/gideon/rails_projects/66main/app/views/refinery/_page_slider.html.slim:
+   16            div.secondaryCaption style="opacity:1" The ultimate in comfortable living.
+   17  		.share style="opacity: 1;margin-top: 1.25em;"
+   18:           a href="#" style="display: inline-block;margin-right: 5px" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href), 'facebook-share-dialog', 'width=626,height=436'); return false"
+   19:             img alt="Facebook" src="/assets/icons/fb.png"
+   20            a href="#" style="display: inline-block;" onclick="window.open('https://twitter.com/share?url='+location.href, 'twitter-share-dialog', 'width=626,height=436'); return false;"
+   21              img alt="Twitter" src="/assets/icons/tw.png"
+   ..
+   43  			      div.secondaryCaption style="opacity:1" The ultimate in comfortable living.
+   44  			    .share style="opacity: 1;margin-top: 1.25em;"
+   45: 				  a href="#" style="display: inline-block;margin-right: 5px" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href), 'facebook-share-dialog', 'width=626,height=436'); return false"
+   46: 				    img alt="Facebook" src="/assets/icons/fb.png"
+   47  				  a href="#" style="display: inline-block;" onclick="window.open('https://twitter.com/share?url='+location.href, 'twitter-share-dialog', 'width=626,height=436'); return false;"
+   48  				    img alt="Twitter" src="/assets/icons/tw.png"  
+
+/home/gideon/rails_projects/66main/app/views/shared/_header.html.slim:
+    9  			=render(:partial => "/refinery/menu", :locals => { :dom_id => 'menu', :css => 'menu'})
+   10  		div.headerSocial.large-1.small-2.columns
+   11: 			a href="https://www.facebook.com/66main" target="_blank"
+   12: 				img src="#{image_path('icons/facebook-01.png')}" alt="Facebook"
+   13  			a href="https://twitter.com/66main" target="_blank"
+   14  				img src="#{image_path('icons/twitter-01.png')}" alt="Twitter"
+
+/home/gideon/rails_projects/66main/app/views/shared/_header2.html.slim:
+   13  				=render(:partial => "/refinery/menu", :locals => { :dom_id => 'menu', :css => 'menu', :hide_children => true})
+   14  			div.headerSocial.large-1.small-2.columns
+   15: 				a href="https://www.facebook.com/66main" target="_blank"
+   16: 					img src="#{image_path('icons/facebook-01.png')}" alt="Facebook"
+   17  				a href="https://twitter.com/66main" target="_blank"
+   18  					img src="#{image_path('icons/twitter-01.png')}" alt="Twitter"
+
+~/rails_projects/66main/log/development.log:
+    <binary>
+
+~/rails_projects/66main/tmp/cache/assets/CFA/6E0/sprockets%2Ff2ad1a3852a856a3aa30a9309641f1d4:
+    <binary>
+
+~/rails_projects/66main/tmp/cache/assets/E5A/760/sprockets%2Feadae71b3b9be8d4c01dc279f7cc33fc:
+    <binary>
+
+202 matches across 6 files

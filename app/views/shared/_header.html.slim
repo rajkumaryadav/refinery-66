@@ -1,0 +1,15 @@
+header
+	div.row
+		div.headerLogo.large-2.small-4.columns
+		  = link_to image_tag("Logo.png", alt: "Logo"), refinery.root_path
+		nav.headerMenu.large-9.small-6.columns
+			div.headerMenuMobile 
+				img src="#{image_path('icons/mobile_menu3.png')}" alt="Menu"
+				| Menu
+			=render(:partial => "/refinery/menu", :locals => { :dom_id => 'menu', :css => 'menu'})
+		div.headerSocial.large-1.small-2.columns
+			a href="https://www.facebook.com/66mainapts" target="_blank"
+				img src="#{image_path('icons/facebook-01.png')}" alt="Facebook"
+			a href="https://twitter.com/66main" target="_blank"
+				img src="#{image_path('icons/twitter-01.png')}" alt="Twitter"
+

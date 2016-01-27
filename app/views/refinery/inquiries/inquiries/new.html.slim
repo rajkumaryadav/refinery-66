@@ -1,0 +1,42 @@
+css:
+  .contactSection input[type='email']{
+    color: #898989;
+    width: 100%;
+    border: 1px solid #898989;
+    font-size: 0.75em;
+    border-radius: 0;
+    padding: 0.625em;
+	}
+
+div.row.secondaryContainer.contact
+	div.small-12.secondaryMarginTop
+		div.secondaryTextHeader contact
+		=form_for [refinery, :inquiries, @inquiry], html: {class: "contactSection"} do |f|
+			=render :partial => "/refinery/admin/error_messages", :locals => {:object => @inquiry,:include_object_name => true}
+			div.row
+				div.large-5.columns
+					=f.text_field :name, required: true, placeholder: "Name"
+				div.large-5.columns
+					=f.email_field :email, required: true, placeholder: "Email"
+			div.row
+				div.large-5.columns
+					=f.text_field :address, required: true, placeholder: "Address"
+				div.large-5.columns
+					=f.text_field :phone, required: true, placeholder: "Phone"
+			div.row
+				div.large-5.columns
+					=f.text_field :city, required: true, placeholder: "City"
+				div.large-5.columns
+					=f.text_field :call_time, required: true, placeholder: "Best time to call"
+			div.row
+				div.large-2.columns
+					=f.text_field :state, required: true, placeholder: "State"
+				div.large-2.columns
+					=f.text_field :zip, required: true, placeholder: "Zip"
+			div.row
+				div.large-10.columns
+					=f.text_area :message, required: true
+			div.row
+				div.large-12.columns
+					=f.submit value="Submit" , class: "submitBtn"
+
